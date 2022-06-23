@@ -2,18 +2,18 @@
 
 class Account
 {
-    /**
-     * @param string $cpfHolder
-     * @param string $nameHolder
-     * @param float $balance
-     */
+    private static int $numberOfAccounts = 0;
 
     public function __construct(
-        public readonly string $cpfHolder,
-        public readonly string $nameHolder,
+        private readonly Holder $holder,
         private float $balance
     ) {
-       $this->validaNomeTitular($this->nameHolder);
+       self::$numberOfAccounts++;
+    }
+
+    public function __destruct()
+    {
+        self::$numberOfAccounts--;
     }
 
     public function withdrawMoney(float $withdrawValue ): float
@@ -52,22 +52,23 @@ class Account
         return $this->balance;
     }
 
-    public function getCpfHolder(): string
+    public static function getNumberOfAccounts(): int
     {
-        return $this->cpfHolder;
+        return self::$numberOfAccounts;
     }
+
+    /**
+     * HOLDER
+    **/
 
     public function getNameHolder(): string
     {
-        return $this->nameHolder;
+        return $this->holder->getNameHolder();
     }
 
-    public function validaNomeTitular($nameHolder): void
+    public function getCpfHolder(): string
     {
-        if (strlen($nameHolder < 5)) {
-            echo "Name must be long than 5 characters";
-            exit();
-        }
+        return $this->holder->getCpfHolder();
     }
 
 

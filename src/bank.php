@@ -1,10 +1,12 @@
 <?php
 
 require 'src/class/Account.php';
+require 'src/class/Holder.php';
+require 'src/class/Cpf.php';
 
-$newAccont = new Account("528.928.928-30", "Khallil V S", 5600);
+$newAccount = new Account(new Holder(new Cpf("528.928.928-30"), "Khaaaaa"),4000);
 
-$newAccont->depositMoney(500.0);
-echo $newAccont->getNameHolder(). PHP_EOL;
-echo $newAccont->getCpfHolder(). PHP_EOL;
-echo $newAccont->getBalance(). PHP_EOL;
+echo $newAccount->getNameHolder() . PHP_EOL;
+echo $newAccount->getCpfHolder() . PHP_EOL;
+echo $newAccount->getBalance() . PHP_EOL;
+
