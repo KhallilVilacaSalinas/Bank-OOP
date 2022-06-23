@@ -6,4 +6,8 @@ class Address
     private string $district;
     private string $road;
 
+    public function __construct()
+    {
+    }
+
 }
