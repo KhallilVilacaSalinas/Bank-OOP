@@ -1,5 +1,7 @@
 <?php
 
+namespace Alura\Bank\Model\Account;
+
 class Account
 {
     private static int $numberOfAccounts = 0;

@@ -1,17 +1,14 @@
 <?php
 
+namespace Alura\Bank\Model;
+
 class Cpf
 {
     public function __construct(
-        private readonly string $cpf
+        public readonly string $cpf
     )
     {
         $this->validateNumberCpf($this->cpf);
-    }
-
-    public function getCpf(): string
-    {
-        return $this->cpf;
     }
 
     public function validateNumberCpf($cpf): void
