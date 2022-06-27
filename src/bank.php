@@ -1,11 +1,9 @@
 <?php
 
+require_once 'autoload.php';
 
-
-require 'src/Model/People.php';
-require 'src/Model/Employee.php';
-require 'src/Model/Cpf.php';
-
+use Alura\Bank\Model\Cpf;
+use Alura\Bank\Model\Employee;
 
 //$address = new Address("São Paulo", "Vila Prudente", '141');
 //$cpf = new Cpf("528.928.928-30");
