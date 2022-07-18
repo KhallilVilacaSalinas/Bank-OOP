@@ -5,8 +5,8 @@ namespace Alura\Bank\Model;
 class People
 {
     public function __construct(
-        private readonly Cpf $cpf,
-        private readonly string $name
+        public readonly Cpf $cpf,
+        public readonly string $name
     )
     {
         $this->validateNameHolder($name);
@@ -20,13 +20,4 @@ class People
         }
     }
 
-    public function getCpf(): string
-    {
-        return $this->cpf->getCpf();
-    }
-
-    protected function getName(): string
-    {
-        return $this->name;
-    }
 }

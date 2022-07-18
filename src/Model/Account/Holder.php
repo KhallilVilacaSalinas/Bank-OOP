@@ -2,6 +2,10 @@
 
 namespace Alura\Bank\Model\Account;
 
+use Alura\Bank\Model\Address;
+use Alura\Bank\Model\Cpf;
+use Alura\Bank\Model\People;
+
 class Holder extends People
 {
     public function __construct(
@@ -15,6 +19,6 @@ class Holder extends People
 
     public function getAddressHolder(): Address
     {
-        return $this->address;
+        return $this->address ;
     }
 }

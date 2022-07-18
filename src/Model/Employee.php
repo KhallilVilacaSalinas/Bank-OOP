@@ -8,9 +8,15 @@ class Employee extends People
         public Cpf $cpf,
         public readonly string $name,
         public readonly string $role,
+        public readonly float $salary
     )
     {
         parent::__construct($cpf, $name);
         $this->validateNameHolder($name);
+    }
+
+    public function calculatebonus(): float
+    {
+        return $this->salary * 0.1;
     }
 }

@@ -2,13 +2,15 @@
 
 namespace Alura\Bank\Model\Account;
 
+use Alura\Bank\Model\Cpf;
+
 class Account
 {
     private static int $numberOfAccounts = 0;
 
     public function __construct(
-        private readonly Holder $holder,
-        private float $balance
+        protected Holder $holder,
+        protected float $balance
     ) {
        self::$numberOfAccounts++;
     }
@@ -18,14 +20,16 @@ class Account
         self::$numberOfAccounts--;
     }
 
-    public function withdrawMoney(float $withdrawValue ): float
+    public function withdrawMoney(float $withdrawValue): float
     {
-        if ($withdrawValue  > $this->balance) {
+        $tarifaSaque = $withdrawValue * $this->percentualTarifa();
+        $valorSaque = $withdrawValue + $tarifaSaque;
+        if ($valorSaque  > $this->balance) {
             echo "The value {$this->balance} is insufficient";
             exit();
         }
 
-        return $this->balance -= $withdrawValue;
+        return $this->balance -= $valorSaque;
     }
 
     public function depositMoney(float $depositValue): float
@@ -65,15 +69,18 @@ class Account
 
     public function getNameHolder(): string
     {
-        return $this->holder->getNameHolder();
+        return $this->holder->name;
     }
 
     public function getCpfHolder(): string
     {
-        return $this->holder->getCpfHolder();
+        return $this->holder->cpf->cpf;
     }
 
-
+    protected function percentualTarifa(): float
+    {
+        return 0.05;
+    }
 
 
 }
