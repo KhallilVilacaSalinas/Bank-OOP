@@ -6,7 +6,7 @@ class Employee extends People
 {
     public function __construct(
         public Cpf $cpf,
-        public readonly string $name,
+        string $name,
         public readonly string $role,
         public readonly float $salary
     )

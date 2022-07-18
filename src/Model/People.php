@@ -5,7 +5,7 @@ namespace Alura\Bank\Model;
 class People
 {
     public function __construct(
-        public readonly Cpf $cpf,
+        public Cpf $cpf,
         public readonly string $name
     )
     {

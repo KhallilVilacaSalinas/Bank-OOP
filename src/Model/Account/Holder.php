@@ -9,7 +9,7 @@ use Alura\Bank\Model\People;
 class Holder extends People
 {
     public function __construct(
-        Cpf $cpf,
+        public Cpf $cpf,
         string $name,
         private Address $address,
     )

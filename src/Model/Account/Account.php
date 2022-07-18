@@ -2,8 +2,6 @@
 
 namespace Alura\Bank\Model\Account;
 
-use Alura\Bank\Model\Cpf;
-
 class Account
 {
     private static int $numberOfAccounts = 0;
